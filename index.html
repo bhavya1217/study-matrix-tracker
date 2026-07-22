@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Goal Matrix & RPG Tracker</title>
+    <!-- Techy Code Font from Google -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <!-- RPG Player Profile Section -->
+        <div class="profile-section">
+            <div class="avatar">🧙‍♀️</div>
+            <div class="profile-stats">
+                <h3 id="player-title">Lvl 1: Novice Coder</h3>
+                <div class="xp-container">
+                    <div id="xp-bar" class="xp-bar"></div>
+                </div>
+                <p class="xp-text"><span id="current-xp">0</span> / 200 XP to next level</p>
+            </div>
+        </div>
+
+        <!-- Live Study Buddy Widget -->
+        <div class="buddy-section">
+            <div class="buddy-info">
+                <h4>📡 Live Partner Status</h4>
+                <p id="buddy-status">Waiting for partner to connect...</p>
+            </div>
+            <button id="send-boost-btn" class="boost-btn">🎁 Send XP Boost</button>
+        </div>
+
+        <h1 id="dashboard-title">💻 Session Tracker</h1>
+        
+        <div class="controls">
+            <div class="input-group">
+                <label for="subject">🏷️ Topic:</label>
+                <input type="text" id="subject" placeholder="e.g., HTML/CSS" maxlength="25">
+            </div>
+
+            <div class="input-group">
+                <label for="total">🎯 Total:</label>
+                <input type="number" id="total" value="" placeholder="26" min="1">
+            </div>
+            <div class="input-group">
+                <label for="completed">✅ Done:</label>
+                <input type="number" id="completed" value="" placeholder="16" min="0">
+            </div>
+            <button id="update-btn">🔄 Sync</button>
+        </div>
+
+        <div class="timer-section">
+            <div class="input-group">
+                <label for="timer-input">⏳ Focus (Mins):</label>
+                <input type="number" id="timer-input" value="25" min="1">
+            </div>
+            <div class="timer-display" id="timer-display">25:00</div>
+            <button id="start-timer-btn" class="pulse-btn">▶️ Start</button>
+        </div>
+
+        <div class="stats-panel">
+            <h2>🚀 Goal Progress: <span id="percentage-text">0%</span></h2>
+            
+            <div class="liquid-container">
+                <div id="liquid-bar" class="liquid-bar"></div>
+            </div>
+
+            <p id="milestone-message">✨ Enter your goals and topic above to begin.</p>
+        </div>
+
+        <div id="matrix-board" class="matrix-board"></div>
+
+        <!-- Analytics Chart Section with Goal Setter -->
+        <div class="analytics-section">
+            <div class="analytics-header">
+                <h2>📊 Focus History (Sessions)</h2>
+                <div class="goal-setter">
+                    <label for="daily-goal">Daily Goal:</label>
+                    <input type="number" id="daily-goal" value="4" min="1" max="20">
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="focusChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.1/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
